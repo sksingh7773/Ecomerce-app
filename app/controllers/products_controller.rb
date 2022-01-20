@@ -49,11 +49,8 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1 or /products/1.json
   def destroy
-    @product = Product.find(params[:id])
-      @product.destroy
- 
-      redirect_to products_path
-  
+    @product.destroy
+    redirect_to products_path
   end
 
   private
@@ -64,6 +61,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:brand, :description, :price)
+      params.require(:product).permit(:brand, :description, :price, :avatar)
     end
 end

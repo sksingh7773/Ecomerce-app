@@ -8,6 +8,7 @@
       <th>Brand</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Avatar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +19,10 @@
         <td><%= product.brand %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
+        <td><%= image_tag product.avatar if product.avatar.attached?  %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
