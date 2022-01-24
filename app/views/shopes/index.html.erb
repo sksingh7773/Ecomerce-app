@@ -20,18 +20,9 @@
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td><%= image_tag product.avatar, width: "200px" if product.avatar.attached?  %></td>
-        <td><%= link_to 'Show', shope_path(Product) %></td>
+        <td><%= link_to 'Show', shope_path(product.id) %></td>
+<td><%= button_to 'Add to cart', line_items_path(id: product.id), class: 'button is-warning add-to-cart' %></td>
 
-
-         <td>
-
-        
-          <%= form_for @order_item, remote: true  do |f|%>
-          <%= f.hidden_field :product_id, :value => product.id %>
-          <%= f.number_field :quantity, :value => 1, :min =>  1%>
-          <%= f.submit "Add to Card "%>
-          <% end %>
-        </td>
        
       </tr>
     <% end %>
@@ -39,6 +30,6 @@
 </table>
 
 <br>
- <%= link_to "#{current_order.order_items.size} iteams with a value of$", cards_path%>
+ 
 
 

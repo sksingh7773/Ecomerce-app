@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
    
-  get 'cards/show'
+  resources :line_items
+  resources :carts
   resources :shopes, only:[:index,:show]
   resources :products 
-  resources :order_items
-  resource :cards, only:[:show]
   devise_for :users ,controllers:{
     registration: 'registration'
   } 
