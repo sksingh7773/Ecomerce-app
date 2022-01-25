@@ -1,4 +1,4 @@
-<h1>Shopes#index</h1>
+<!--<h1>Shopes#index</h1>
 
 <h1>Products</h1>
 
@@ -29,7 +29,29 @@
   </tbody>
 </table>
 
-<br>
- 
+<br>-->
+
+<div class="product-index-grid pt4">
+  <% @products.each do |product| %>
+
+    <div class="product border-light">
+      <div class="product-thumb">
+      <%= image_tag product.avatar, width: "200px" if product.avatar.attached?  %>
+     
+      </div>
+       <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= product.brand %></h3>
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
+
+    
+
+    </div>
+
+
+    <%= link_to 'Show', shope_path(product.id) %>
+  </div>
+  <% end %>
+</div>
 
 

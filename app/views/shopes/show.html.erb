@@ -1,4 +1,4 @@
-<h1>Shopes#show</h1>
+<!--<h1>Shopes#show</h1>
 <p>Find me in app/views/shopes/show.html.erb</p>
 <p id="notice"><%= notice %></p>
 
@@ -21,7 +21,49 @@
   <% if @product.avatar.attached? %>
   <%= image_tag @product.avatar, width: "200px" %>
   <% end %>
-</p>
+</p>-->
 
 
 <%= link_to 'Back', root_path %>
+
+<% content_for :body_class, 'bg-light' %>
+
+<section class="section instrument-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @product.brand %></h1>
+
+      
+
+      <div class="feature-image">
+         <%= image_tag @product.avatar, width: "200px" if @product.avatar.attached?  %>
+      </div>
+
+      <div class="content pa4 mt3 bg-white border-radius-3">
+
+     
+
+      <table class="table is-narrow">
+       
+        <% if @product.brand %>
+          <tr>
+            <td class="has-text-weight-bold">DESCRIPTION:</td>
+            <td><%= @product.description %></td>
+          </tr>
+        <% end %>
+
+        
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@product.price) %></h4>
+        
+        <%= button_to 'Add to cart', line_items_path(id: @product), class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
