@@ -26,7 +26,7 @@
     <% end %>
 
      <nav class="navbar navbar-expand-lg navbar-light bg-light
-      
+
       <div class="navbar-brand"> 
         <%= link_to root_path, class:"navbar-item" do %>
           <h1 class="title is-5">Ecommerece</h1>
@@ -57,6 +57,8 @@
             
 
             <% if user_signed_in? %>
+            
+            <p>you are a[<%= current_user.role %>]</p>
              
 
               <div class="navbar-item has-dropdown is-hoverable">
