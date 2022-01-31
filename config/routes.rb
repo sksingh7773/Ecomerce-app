@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users ,controllers:{
     registration: 'registration'
   } 
-
+  
   #get '/welcome', to: 'welcome#index'
   root 'shopes#index' 
 
