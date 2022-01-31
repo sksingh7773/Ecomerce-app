@@ -31,7 +31,7 @@
 
 <br>-->
 
-<div class="product-index-grid pt2">
+<div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
     <div class="product border-light">
@@ -43,12 +43,7 @@
 
       <h3 class="fw7 f4 title"><%= product.brand %></h3>
       <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
-
-    
-
     </div>
-
-
     <%= link_to 'Show', shope_path(product.id) %>
   </div>
   <% end %>
