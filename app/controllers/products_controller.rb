@@ -23,29 +23,28 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    respond_to do |format|
       if @product.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
-        format.json { render :show, status: :created, location: @product }
+        redirect_to product_url(@product), notice: "Product was successfully created." 
+        
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity 
+         
       end
-    end
+  
   end
 
   
   def update
-    respond_to do |format|
+    
       if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @product }
+         redirect_to @product, notice: "Product was successfully updated." 
+         
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render 'edit'
+       
       end
     end
-  end
+  
 
   
   def destroy
