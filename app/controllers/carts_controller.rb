@@ -45,18 +45,13 @@ class CartsController < ApplicationController
         render :edit, status: :unprocessable_entity 
        
       end
-    end
+  
   end
 
  
   def destroy
-    @cart.destroy
-  
-
-    
-       redirect_to root_path, notice: "Cart was successfully destroyed." 
-      
-    
+   @cart.destroy  
+   redirect_to root_path, notice: "Cart was successfully destroyed." 
   end
 
   private
