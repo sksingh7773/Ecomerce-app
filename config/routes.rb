@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
    
-  resources :line_items
+ resources :line_items
   resources :places
   resources :carts
   resources :shopes, only:[:index,:show]
   resources :products 
+ # resources :orders do
+    #resources :line_items
+  #end
   devise_for :users ,controllers:{
     registration: 'registration'
   } 

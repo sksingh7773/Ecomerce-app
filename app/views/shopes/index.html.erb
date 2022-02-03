@@ -21,7 +21,6 @@
         <td><%= product.price %></td>
         <td><%= image_tag product.avatar, width: "200px" if product.avatar.attached?  %></td>
         <td><%= link_to 'Show', shope_path(product.id) %></td>
-<td><%= button_to 'Add to cart', line_items_path(id: product.id), class: 'button is-warning add-to-cart' %></td>
 
        
       </tr>
