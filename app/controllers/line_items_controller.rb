@@ -22,6 +22,7 @@ class LineItemsController < ApplicationController
   
   def create
     product = Product.find(params[:id])
+    #@line_items.user_id = current_user.id
     @line_item = @cart.add_product(product)
 
     
@@ -56,15 +57,7 @@ class LineItemsController < ApplicationController
   end
 
   private
-  def create_order
-      @order = current_user.orders.where(status: 0).first
-      if @order.present?
-        @order = Order.find(params[:order_id])
-      else
-        @order = Order.create(status: 0)
-      end
-      @order
-    end
+  
    
     def set_line_item
       @line_item = LineItem.find(params[:id])

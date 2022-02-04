@@ -1,0 +1,1 @@
+ <%= link_to 'Deliver to this address', new_order_path, :class => 'btn '%>

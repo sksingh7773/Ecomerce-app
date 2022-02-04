@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_100037) do
+ActiveRecord::Schema.define(version: 2022_02_04_124602) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 2022_02_02_100037) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.text "address_1"
+    t.text "address_2"
+    t.string "city"
+    t.string "country"
+    t.bigint "postal_code"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,6 +63,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_100037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity", default: 1
+    t.integer "order_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -60,6 +73,9 @@ ActiveRecord::Schema.define(version: 2022_02_02_100037) do
     t.integer "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_quantity"
+    t.string "payment_mode"
+    t.integer "status", default: 0
   end
 
   create_table "places", force: :cascade do |t|
@@ -92,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_100037) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
 end
