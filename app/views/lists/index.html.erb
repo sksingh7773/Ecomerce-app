@@ -1,0 +1,54 @@
+<% if current_user.role == 'admin' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Address2</th>
+      <th>Landmark</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postalcode</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.address %></td>
+        <td><%= list.address2 %></td>
+        <td><%= list.landmark %></td>
+        <td><%= list.name %></td>
+        <td><%= list.email %></td>
+        <td><%= list.city %></td>
+        <td><%= list.state %></td>
+        <td><%= list.postalcode %></td>
+        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Edit', edit_list_path(list) %></td>
+        <td><%= button_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% end %>
+
+ 
+
+<strong>You are few step away from your order</strong><br>
+<strong>We provide 100% genuine product <br>
+Don't worry about quality
+
+</strong>
+<hr>
+
+
+<%= link_to 'click hear to place order', new_list_path, :class => 'btn ' %>

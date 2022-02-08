@@ -1,0 +1,58 @@
+<% if current_user.role == 'admin' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @list.address %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @list.address2 %>
+</p>
+
+<p>
+  <strong>Landmark:</strong>
+  <%= @list.landmark %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @list.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @list.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @list.state %>
+</p>
+
+<p>
+  <strong>Postalcode:</strong>
+  <%= @list.postalcode %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
+<% end %>
+
+<div class="jumbotron text-center">
+  <h1 class="display-3">Thank You for shopping!</h1>
+  <p class="lead"><strong>Please check your email</strong> for further instructions </p>
+  <hr>
+ 
+ 
+  <div class="columns">
+    <div class="column">
+      <%= button_to 'Return TO HomePage', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "btn" %>
+    </div>
+</div>
