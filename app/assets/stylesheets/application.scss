@@ -13,7 +13,9 @@
  *
  *= require_tree .
  *= require_self
+
  */
+
 
 
 
@@ -30,6 +32,8 @@ $link-hover: #222;
 @import "bulma";
 @import "functions";
 @import "footer";
+@import "rails_bootstrap_forms";
+
 
 .navbar {
     background-color: #A4C8EC;

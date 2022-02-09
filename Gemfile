@@ -33,6 +33,8 @@ gem 'simple_form', '~> 5.0'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
 gem 'mini_magick'
+gem "bootstrap", "~> 5.0"
+gem "bootstrap_form", "~> 5.0"
 
 
 group :development, :test do

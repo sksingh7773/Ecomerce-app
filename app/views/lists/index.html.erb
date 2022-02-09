@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>Address</th>
+      
       <th>Address2</th>
       <th>Landmark</th>
       <th>Name</th>
@@ -30,7 +31,7 @@
         <td><%= list.city %></td>
         <td><%= list.state %></td>
         <td><%= list.postalcode %></td>
-        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Show', list%></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
         <td><%= button_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -41,9 +42,12 @@
 <br>
 <% end %>
 
- 
 
+
+ <span class="f5 has-text-grey">Your Total Price is :</span> <%= number_to_currency(@cart.total_price) %><br>
+<br>
 <strong>You are few step away from your order</strong><br>
+<br>
 <strong>We provide 100% genuine product <br>
 Don't worry about quality
 
@@ -52,3 +56,4 @@ Don't worry about quality
 
 
 <%= link_to 'click hear to place order', new_list_path, :class => 'btn ' %>
+

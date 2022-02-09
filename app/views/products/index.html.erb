@@ -20,14 +20,17 @@
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td><%= image_tag product.avatar,width: "200px"  if product.avatar.attached?  %></td>
+       <% if current_user.role == 'admin' %>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= button_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
+<% if current_user.role == 'admin' %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>
