@@ -22,9 +22,13 @@
   <%= image_tag @product.avatar, width: "200px" %>
   <% end %>
 </p>-->
+ <br>
+            <span>
+              <h1> </h1>
+            </span>
 
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path, class: 'button is-warning' %>
 
 <% content_for :body_class, 'bg-light' %>
 
@@ -61,6 +65,14 @@
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@product.price) %></h4>
         
         <%= button_to 'Add to cart', line_items_path(id: @product), class: 'button is-warning add-to-cart' %>
+        <% if current_user.role == 'admin' %>
+         <br>
+            <span>
+              <h1> </h1>
+            </span>
+            <span><%= link_to 'Edit', edit_product_path(@product), class:"button is-warning"  %></span>
+            <span><%#= link_to 'Issue', book_path(book) %></span>
+            <% end %>
       </div>
     </div>
   </div>

@@ -12,4 +12,5 @@ class ShopesController < ApplicationController
   def create
 
   end
+  
 end

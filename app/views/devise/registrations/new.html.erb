@@ -1,7 +1,12 @@
-<h2>Sign up</h2>
+<strong>Sign up</strong>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <br>
+            <span>
+              
+              <h1> </h1>
+            </span>
 
 
 
@@ -31,8 +36,18 @@
 
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" , class:"button is-warning"%>
+    <br>
+            <span>
+              
+              <h1> </h1>
+            </span>
   </div>
 <% end %>
+<br>
+            <span>
+              
+              <h1> </h1>
+            </span>
 
 <%= render "devise/shared/links" %>

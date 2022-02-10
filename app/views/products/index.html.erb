@@ -1,6 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
+<br>
+            <span>
+              <h1> </h1>
+            </span>
+<% if current_user.role == 'admin' %>
+  <%= link_to 'New Product', new_product_path, class:"button is-danger"  %>
+  <br>
+            <span>
+              <h1> </h1>
+            </span>
+<% end %>
+<br>
+            <span>
+              <h1> </h1>
+            </span>
 
 <table>
   <thead>
@@ -31,6 +46,3 @@
 </table>
 
 <br>
-<% if current_user.role == 'admin' %>
-  <%= link_to 'New Product', new_product_path %>
-<% end %>
