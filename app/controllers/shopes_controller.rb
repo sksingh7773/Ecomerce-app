@@ -1,6 +1,6 @@
 class ShopesController < ApplicationController
   def index
-   @products = Product.all
+   @products = Product.where(["brand LIKE ?", "%#{params[:search]}%" ])
   
 
   end

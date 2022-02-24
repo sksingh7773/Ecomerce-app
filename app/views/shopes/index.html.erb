@@ -32,8 +32,11 @@
 <hr>
   <% if current_user.role == 'admin' %>
    <%= link_to 'Add New Product',new_product_path, class: "btn" %>
-  <% end %>
+   <%= link_to 'Go to orders ', lists_path, :class => 'btn btn-info btn-lg btn-block' %>
 
+  <% end %>
+  
+   
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 

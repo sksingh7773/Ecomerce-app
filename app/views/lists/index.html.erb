@@ -1,4 +1,4 @@
-<% if current_user.role == 'admin' %>
+<!--<% if current_user.role == 'admin' %>
 
 <p id="notice"><%= notice %></p>
 
@@ -40,8 +40,9 @@
 </table>
 
 <br>
-<% end %>
+<% end %>-->
 
+<% if current_user.role == 'user' %>
 
 
  <span class="f5 has-text-grey">Your Total Price is :</span> <%= number_to_currency(@cart.total_price) %><br>
@@ -56,4 +57,55 @@ Don't worry about quality
 
 
 <%= link_to 'click hear to place order', new_list_path, :class => 'btn ' %>
+<% end %>
+
+<% if current_user.role == 'admin' %>
+<br>
+            <span>
+              
+              <h1> </h1>
+            </span>
+<strong :center>All order</strong>
+
+<div class="list-index-grid pt4">
+  <% @lists.each do |list| %>
+
+    <div class="product border-light">
+      <div class="product-thumb">
+     
+     
+      </div>
+       <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= list.name %></h3>
+      <h3 class="fw7 f4 title"><%= list.address %></h3>
+      <h3 class="fw7 f4 title"><%= list.address2 %></h3>
+      <%= link_to 'Show', list , class:"button is-danger"%>
+     <button class="button is-danger"><a href="/send_ap"><strong>Approve</strong></a></button> 
+          <button class="button is-danger"><a href="/send_db"><strong>Reject</strong></a></button> 
+
+      
+
+    
+
+      
+      
+    </div> 
+    
+   
+          
+            <span><%#= link_to 'Issue', book_path(book) %></span>
+            
+  </div>
+
+  
+  <% end %>
+  <br>
+            <span>
+              
+              <h1> </h1>
+            </span>
+</div>
+<% end %>
+
 

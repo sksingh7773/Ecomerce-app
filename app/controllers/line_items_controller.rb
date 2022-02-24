@@ -40,7 +40,7 @@ class LineItemsController < ApplicationController
   def update
     
       if @line_item.update(line_item_params)
-         redirect_to line_item_url(@line_item), notice: "Line item was successfully updated." 
+         redirect_to line_item_url(@line_item), notice: "product update successfully." 
         
       else
          render :edit, status: :unprocessable_entity 
@@ -53,7 +53,7 @@ class LineItemsController < ApplicationController
   def destroy
     @cart = Cart.find(session[:cart_id])
     @line_item.destroy
-       redirect_to cart_path(@cart), notice: "Line item was successfully destroyed." 
+       redirect_to cart_path(@cart), notice: "product remove successfully." 
   end
 
   private

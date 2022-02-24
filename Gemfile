@@ -35,6 +35,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "bootstrap", "~> 5.0"
 gem "bootstrap_form", "~> 5.0"
+gem 'mail_form', '~> 1.9'
+gem "letter_opener", group: :development
+# gem 'elasticsearch-model'
+# gem 'elasticsearch-rails'
+
 
 
 group :development, :test do

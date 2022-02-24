@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :carts
   resources :shopes, only:[:index,:show]
   resources :products 
+  resources :contacts, only: [:new, :create]
+  get "/send_ap" => "lists#send_approve_mail"
+  get "/send_db" => "lists#send_reject"
+  get "search" => "products#search"
   
   resources :orders #do
     #resources :line_items

@@ -24,6 +24,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
 
       if @list.save
+        ListMailer.send_order_mail(@list).deliver_later
          redirect_to list_url(@list), notice: "Your order placed successfully" 
       else
        render :new, status: :unprocessable_entity 
@@ -47,6 +48,14 @@ class ListsController < ApplicationController
       redirect_to lists_url, notice: "List was successfully destroyed." 
   end
 
+  def send_approve_mail
+    ListMailer.send_ap.deliver_now
+  end
+
+  def send_reject
+    ListMailer.send_db.deliver_now
+  end
+
   private
     
     def set_list
@@ -55,6 +64,6 @@ class ListsController < ApplicationController
 
     
     def list_params
-      params.require(:list).permit(:address, :address2, :landmark, :name, :email, :city, :state, :postalcode, :product_id)
+      params.require(:list).permit(:address, :address2, :landmark, :name, :email, :city, :state, :postalcode, :product_id, :status )
     end
 end

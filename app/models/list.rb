@@ -5,4 +5,9 @@ validates :postalcode, presence: true
 	   validates :email, presence: true
 	    validates :name, presence: true
 has_many :products
+#belongs_to :products
+
+
+
+ enum status: [:payment, :shipped, :deliver,  :cancelled]
 end

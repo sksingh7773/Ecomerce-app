@@ -1,0 +1,22 @@
+<h1>Contact Us</h1>
+<%= bootstrap_form_with scope: :contact, url: contacts_path,  local: true do |form| %>
+  <p>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.text_area :email %>
+  </p>
+
+   <p>
+    <%= form.text_area :phone %>
+  </p>
+
+   <p>
+    <%= form.text_area :query %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
